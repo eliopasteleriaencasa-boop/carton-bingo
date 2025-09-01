@@ -2,18 +2,63 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Compra de Cartón</title>
+  <title>Panel de Bingo - Vendedor</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h2>Solicita tu cartón de bingo</h2>
-  <form id="formulario">
-    <input type="text" id="nombre" placeholder="Tu nombre" required>
-    <input type="email" id="correo" placeholder="Tu correo" required>
-    <input type="text" id="referencia" placeholder="Referencia de pago" required>
-    <button type="submit">Validar y recibir cartón</button>
-  </form>
-  <div id="mensaje"></div>
+  <header>
+    <h1>🎯 Panel de Control - Bingo</h1>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#registro">Registro</a></li>
+        <li><a href="#validacion">Validación</a></li>
+        <li><a href="#carton">Cartón</a></li>
+        <li><a href="#envio">Envío</a></li>
+        <li><a href="#auditoria">Auditoría</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="inicio">
+    <h2>Bienvenido, Elio</h2>
+    <p>Este panel te permite gestionar pagos, generar cartones y enviarlos por WhatsApp con trazabilidad total.</p>
+  </section>
+
+  <section id="registro">
+    <h2>Registro de Cliente</h2>
+    <form id="formRegistro">
+      <input type="text" id="nombre" placeholder="Nombre del cliente" required>
+      <input type="tel" id="whatsapp" placeholder="Número de WhatsApp" required>
+      <input type="text" id="referencia" placeholder="Referencia de pago" required>
+      <button type="submit">Registrar</button>
+    </form>
+    <div id="registroEstado"></div>
+  </section>
+
+  <section id="validacion">
+    <h2>Validación de Pago</h2>
+    <button onclick="validarPago()">Validar referencia</button>
+    <div id="validacionEstado"></div>
+  </section>
+
+  <section id="carton">
+    <h2>Generación de Cartón</h2>
+    <button onclick="generarCarton()">Generar cartón</button>
+    <div id="cartonVisual"></div>
+  </section>
+
+  <section id="envio">
+    <h2>Envío por WhatsApp</h2>
+    <button onclick="enviarCarton()">Enviar cartón</button>
+    <div id="envioEstado"></div>
+  </section>
+
+  <section id="auditoria">
+    <h2>Auditoría</h2>
+    <p>Aquí se mostrará el historial de envíos y validaciones.</p>
+    <div id="historial"></div>
+  </section>
 
   <script src="script.js"></script>
 </body>
