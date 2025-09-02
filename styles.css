@@ -38,7 +38,7 @@ nav button:hover {
 }
 
 .fondo {
-  background-image: url('https://i.imgur.com/9g7ZQhT.jpg'); /* Fondo temático bingo */
+  background-image: url('https://i.imgur.com/9g7ZQhT.jpg');
   background-size: cover;
   background-position: center;
   color: white;
@@ -63,5 +63,6 @@ nav button:hover {
   font-size: 1em;
   cursor: pointer;
 }
+
 
 
