@@ -1,85 +1,57 @@
-// 🧾 Datos del cliente y historial
-let cliente = {};
-let historial = [];
-
-// 🟢 Registro de cliente
-document.getElementById("formRegistro").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  cliente.nombre = document.getElementById("nombre").value.trim();
-  cliente.whatsapp = document.getElementById("whatsapp").value.trim();
-  cliente.referencia = document.getElementById("referencia").value.trim();
-
-  document.getElementById("registroEstado").innerText =
-    `✅ Cliente registrado: ${cliente.nombre} (${cliente.whatsapp})`;
-});
-
-// 🔍 Validación de pago (simulada)
-function validarPago() {
-  const referenciasValidas = ["ABC123", "PAGO456", "XYZ789"];
-
-  if (!cliente.referencia) {
-    document.getElementById("validacionEstado").innerText =
-      `⚠️ Primero debes registrar al cliente.`;
-    return;
-  }
-
-  if (referenciasValidas.includes(cliente.referencia)) {
-    cliente.estadoPago = "Validado";
-    document.getElementById("validacionEstado").innerText =
-      `✅ Pago validado para ${cliente.nombre}`;
+// 🔄 Mostrar solo la sección activa
+function mostrarSeccion(id) {
+  document.querySelectorAll('.seccion').forEach(s => s.classList.remove('visible'));
+  const activa = document.getElementById(id);
+  if (activa) {
+    activa.classList.add('visible');
+    console.log("Sección mostrada:", id);
   } else {
-    cliente.estadoPago = "Rechazado";
-    document.getElementById("validacionEstado").innerText =
-      `❌ Referencia inválida. Verifica el pago.`;
+    console.warn("Sección no encontrada:", id);
   }
 }
 
-// 🎫 Generación de cartón (simulada)
-function generarCarton() {
-  if (cliente.estadoPago !== "Validado") {
-    document.getElementById("cartonVisual").innerText =
-      `⚠️ No se puede generar cartón sin validar el pago.`;
+// 🛒 Manejo de compra
+document.getElementById('formCompra').onsubmit = function(e) {
+  e.preventDefault();
+  const nombre = e.target.nombre.value.trim();
+  const telefono = e.target.telefono.value.trim();
+
+  if (!nombre || !telefono) {
+    document.getElementById('estadoCompra').textContent = "❌ Completa todos los campos.";
     return;
   }
 
-  cliente.carton = `Cartón #${Math.floor(100000 + Math.random() * 900000)}`;
-  document.getElementById("cartonVisual").innerText =
-    `🎫 Cartón generado: ${cliente.carton}`;
-}
+  // Aquí podrías conectar con Apps Script o Airtable
+  console.log("Compra registrada:", { nombre, telefono });
+  document.getElementById('estadoCompra').textContent = "✅ Cartón generado correctamente.";
+};
 
-// 📤 Envío por WhatsApp (simulado)
-function enviarCarton() {
-  if (!cliente.carton) {
-    document.getElementById("envioEstado").innerText =
-      `⚠️ No hay cartón generado para enviar.`;
+// ✅ Manejo de validación
+document.getElementById('formValidar').onsubmit = function(e) {
+  e.preventDefault();
+  const transaccion = e.target.transaccion.value.trim();
+
+  if (!transaccion) {
+    document.getElementById('estadoValidar').textContent = "❌ Ingresa el ID de transacción.";
     return;
   }
 
-  const mensaje = `Hola ${cliente.nombre}, aquí está tu cartón: ${cliente.carton}`;
-  document.getElementById("envioEstado").innerText =
-    `📤 Cartón enviado a ${cliente.whatsapp} (simulado)`;
+  // Aquí podrías validar contra tu base de datos
+  console.log("Validación enviada:", transaccion);
+  document.getElementById('estadoValidar').textContent = "✅ Pago validado.";
+};
 
-  // 🗂️ Registrar en historial
-  historial.push({
-    nombre: cliente.nombre,
-    whatsapp: cliente.whatsapp,
-    referencia: cliente.referencia,
-    carton: cliente.carton,
-    fecha: new Date().toLocaleString()
-  });
+// 📤 Manejo de envío por WhatsApp
+document.getElementById('formEnviar').onsubmit = function(e) {
+  e.preventDefault();
+  const destino = e.target.destino.value.trim();
 
-  actualizarHistorial();
-}
+  if (!destino || !/^\d{10,15}$/.test(destino)) {
+    document.getElementById('estadoEnviar').textContent = "❌ Ingresa un teléfono válido.";
+    return;
+  }
 
-// 📋 Mostrar historial en auditoría
-function actualizarHistorial() {
-  const contenedor = document.getElementById("historial");
-  contenedor.innerHTML = "";
-
-  historial.forEach((registro, index) => {
-    const item = document.createElement("div");
-    item.innerText = `${index + 1}. ${registro.nombre} | ${registro.whatsapp} | ${registro.referencia} | ${registro.carton} | ${registro.fecha}`;
-    contenedor.appendChild(item);
-  });
-}
+  // Aquí podrías conectar con UltraMsg o WATI
+  console.log("Envío iniciado a:", destino);
+  document.getElementById('estadoEnviar').textContent = "📤 Cartón enviado por WhatsApp.";
+};
