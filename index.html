@@ -2,37 +2,57 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Panel de Control Bingo</title>
+  <title>Sistema de Bingo Digital</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <!-- 🎯 Presentación inicial -->
+  <section id="presentacion" class="vista activa">
+    <div class="fondo">
+      <h1>Bienvenido al Sistema de Bingo Digital</h1>
+      <p>Automatiza, valida y audita todo el flujo de ventas y cartones.</p>
+      <button onclick="mostrarVista('generacion')">Comenzar</button>
+    </div>
+  </section>
+
+  <!-- 🧮 Generación de cartones -->
+  <section id="generacion" class="vista">
+    <h2>Generar cartones</h2>
+    <p>Indica cuántos cartones deseas generar (1 a 1000):</p>
+    <input type="number" id="cantidadCartones" min="1" max="1000" value="10">
+    <button onclick="generarCartones()">Generar</button>
+
+    <div id="resultadoCartones"></div>
+  </section>
+
   <!-- 🔘 Navegación -->
-  <nav>
+  <nav id="menu" class="oculto">
     <button onclick="mostrarVista('validacion')">Validación de pagos</button>
     <button onclick="mostrarVista('cartones')">Gestión de cartones</button>
     <button onclick="mostrarVista('auditoria')">Auditoría</button>
   </nav>
 
-  <!-- 🧾 Vistas -->
-  <div id="validacion" class="vista">
+  <!-- 🧾 Vistas posteriores -->
+  <section id="validacion" class="vista">
     <h2>Validación de pagos</h2>
     <p>Aquí puedes validar pagos recibidos y asignar cartones.</p>
-  </div>
+  </section>
 
-  <div id="cartones" class="vista">
+  <section id="cartones" class="vista">
     <h2>Gestión de cartones</h2>
     <p>Visualiza, genera y envía cartones únicos por evento.</p>
-  </div>
+  </section>
 
-  <div id="auditoria" class="vista">
+  <section id="auditoria" class="vista">
     <h2>Auditoría</h2>
     <p>Revisa trazabilidad, duplicidad y errores humanos.</p>
-  </div>
+  </section>
 
   <script src="main.js"></script>
 </body>
 </html>
+
 
 
 
