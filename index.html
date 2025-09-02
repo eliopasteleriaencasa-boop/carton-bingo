@@ -19,7 +19,11 @@
   <!-- 🧮 Generación -->
   <section id="generacion" class="vista">
     <h2>Generar cartones</h2>
-    <p>Indica cuántos cartones deseas generar (1 a 1000):</p>
+    <p>Zona:</p>
+    <input type="text" id="zonaCartones" placeholder="ZONA01">
+    <p>Evento:</p>
+    <input type="text" id="eventoCartones" placeholder="EVENTO23">
+    <p>Cantidad de cartones (1 a 1000):</p>
     <input type="number" id="cantidadCartones" min="1" max="1000" value="10">
     <button id="btnGenerar">Generar</button>
     <div id="resultadoCartones"></div>
@@ -51,6 +55,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
