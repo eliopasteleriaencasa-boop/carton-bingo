@@ -1,8 +1,8 @@
 let cartones = [];
 
-function mostrarVista(id) {
-  document.querySelectorAll('.vista').forEach(v => v.classList.remove('activa'));
-  document.getElementById(id).classList.add('activa');
+function comenzarSistema() {
+  document.getElementById('presentacion').classList.remove('activa');
+  document.getElementById('generacion').classList.add('activa');
 }
 
 function generarCartones() {
@@ -29,5 +29,6 @@ function generarCartones() {
 
 // Vista inicial
 mostrarVista('presentacion');
+
 
 
