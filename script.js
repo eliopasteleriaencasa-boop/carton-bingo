@@ -13,20 +13,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Botón Generar
   document.getElementById('btnGenerar').addEventListener('click', () => {
+    const zona = document.getElementById('zonaCartones').value.trim();
+    const evento = document.getElementById('eventoCartones').value.trim();
     const cantidad = parseInt(document.getElementById('cantidadCartones').value);
-    if (isNaN(cantidad) || cantidad < 1 || cantidad > 1000) {
-      alert("Ingresa un número válido entre 1 y 1000.");
+    const resultado = document.getElementById('resultadoCartones');
+
+    if (!zona || !evento || isNaN(cantidad) || cantidad < 1 || cantidad > 1000) {
+      alert("Completa todos los campos correctamente.");
       return;
     }
 
     cartones = [];
+    const fecha = new Date().toISOString().slice(0,10).replace(/-/g,'');
+    const base = `${zona}-${evento}-${fecha}`;
+
+    let html = `<h3>Cartones generados:</h3><table><thead><tr><th>#</th><th>Código Único</th><th>Secuencia</th></tr></thead><tbody>`;
+
     for (let i = 1; i <= cantidad; i++) {
-      const codigo = `B-${String(i).padStart(3, '0')}`;
+      const secuencia = String(i).padStart(4, '0');
+      const codigo = `${base}-${secuencia}`;
       cartones.push(codigo);
+      html += `<tr><td>${i}</td><td>${codigo}</td><td>${secuencia}</td></tr>`;
     }
 
-    const resultado = document.getElementById('resultadoCartones');
-    resultado.innerHTML = `<h3>Cartones generados:</h3><ul>${cartones.map(c => `<li>${c}</li>`).join('')}</ul>`;
+    html += `</tbody></table>`;
+    resultado.innerHTML = html;
 
     document.getElementById('menu').classList.remove('oculto');
     mostrarVista('cartones');
@@ -35,9 +46,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Vista inicial
 mostrarVista('presentacion');
-
-
-
-
-
-
