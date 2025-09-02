@@ -106,6 +106,19 @@ table th {
 table tr:nth-child(even) {
   background: #f9f9f9;
 }
+.btn-regresar {
+  background: #999;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.btn-regresar:hover {
+  background: #666;
+}
+
 
 
 
