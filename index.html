@@ -2,56 +2,38 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Panel de Bingo</title>
-<link rel="stylesheet" href="style.css">
+  <title>Panel de Control Bingo</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <h1>🎯 Panel de Bingo</h1>
+  <!-- 🔘 Navegación -->
+  <nav>
+    <button onclick="mostrarVista('validacion')">Validación de pagos</button>
+    <button onclick="mostrarVista('cartones')">Gestión de cartones</button>
+    <button onclick="mostrarVista('auditoria')">Auditoría</button>
+  </nav>
 
-  <div class="menu">
-    <button onclick="mostrarSeccion('comprar')">🛒 Comprar</button>
-    <button onclick="mostrarSeccion('validar')">✅ Validar Pago</button>
-    <button onclick="mostrarSeccion('enviar')">📤 Enviar Cartón</button>
+  <!-- 🧾 Vistas -->
+  <div id="validacion" class="vista">
+    <h2>Validación de pagos</h2>
+    <p>Aquí puedes validar pagos recibidos y asignar cartones.</p>
   </div>
 
-  <!-- Sección: Compra -->
-  <div id="comprar" class="seccion">
-    <h2>🛒 Compra de Cartón</h2>
-    <form id="formCompra">
-      <label>Nombre:</label><br>
-      <input type="text" name="nombre"><br><br>
-      <label>Teléfono:</label><br>
-      <input type="text" name="telefono"><br><br>
-      <button type="submit">Generar Cartón</button>
-    </form>
-    <div class="estado" id="estadoCompra"></div>
+  <div id="cartones" class="vista">
+    <h2>Gestión de cartones</h2>
+    <p>Visualiza, genera y envía cartones únicos por evento.</p>
   </div>
 
-  <!-- Sección: Validación -->
-  <div id="validar" class="seccion">
-    <h2>✅ Validación de Pago</h2>
-    <form id="formValidar">
-      <label>ID de transacción:</label><br>
-      <input type="text" name="transaccion"><br><br>
-      <button type="submit">Validar</button>
-    </form>
-    <div class="estado" id="estadoValidar"></div>
+  <div id="auditoria" class="vista">
+    <h2>Auditoría</h2>
+    <p>Revisa trazabilidad, duplicidad y errores humanos.</p>
   </div>
 
-  <!-- Sección: Envío -->
-  <div id="enviar" class="seccion">
-    <h2>📤 Envío por WhatsApp</h2>
-    <form id="formEnviar">
-      <label>Teléfono destino:</label><br>
-      <input type="text" name="destino"><br><br>
-      <button type="submit">Enviar Cartón</button>
-    </form>
-    <div class="estado" id="estadoEnviar"></div>
-  </div>
-<script src="script.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
+
 
 
 
