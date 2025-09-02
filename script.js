@@ -1,5 +1,10 @@
 let cartones = [];
 
+function mostrarVista(id) {
+  document.querySelectorAll('.vista').forEach(v => v.classList.remove('activa'));
+  document.getElementById(id).classList.add('activa');
+}
+
 function comenzarSistema() {
   document.getElementById('presentacion').classList.remove('activa');
   document.getElementById('generacion').classList.add('activa');
@@ -18,17 +23,16 @@ function generarCartones() {
     cartones.push(codigo);
   }
 
-  // Mostrar resultado
   const resultado = document.getElementById('resultadoCartones');
   resultado.innerHTML = `<h3>Cartones generados:</h3><ul>${cartones.map(c => `<li>${c}</li>`).join('')}</ul>`;
 
-  // Activar menú y vistas
   document.getElementById('menu').classList.remove('oculto');
   mostrarVista('cartones');
 }
 
 // Vista inicial
 mostrarVista('presentacion');
+
 
 
 
