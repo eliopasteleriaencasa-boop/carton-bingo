@@ -7,7 +7,7 @@
 </head>
 <body>
 
-  <!-- 🎯 Presentación inicial -->
+  <!-- 🎯 Presentación -->
   <section id="presentacion" class="vista activa">
     <div class="fondo">
       <h1>Bienvenido al Sistema de Bingo Digital</h1>
@@ -16,16 +16,16 @@
     </div>
   </section>
 
-  <!-- 🧮 Generación de cartones -->
+  <!-- 🧮 Generación -->
   <section id="generacion" class="vista">
     <h2>Generar cartones</h2>
     <p>Indica cuántos cartones deseas generar (1 a 1000):</p>
     <input type="number" id="cantidadCartones" min="1" max="1000" value="10">
-    <button onclick="generarCartones()">Generar</button>
+    <button id="btnGenerar">Generar</button>
     <div id="resultadoCartones"></div>
   </section>
 
-  <!-- 🔘 Navegación -->
+  <!-- 🔘 Menú -->
   <nav id="menu" class="oculto">
     <button onclick="mostrarVista('validacion')">Validación de pagos</button>
     <button onclick="mostrarVista('cartones')">Gestión de cartones</button>
@@ -51,6 +51,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
