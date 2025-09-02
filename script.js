@@ -6,9 +6,13 @@ function mostrarVista(id) {
 }
 
 function comenzarSistema() {
-  document.getElementById('presentacion').classList.remove('activa');
-  document.getElementById('generacion').classList.add('activa');
+  mostrarVista('generacion');
 }
+
+// Activar botón "Comenzar"
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('btnComenzar').addEventListener('click', comenzarSistema);
+});
 
 function generarCartones() {
   const cantidad = parseInt(document.getElementById('cantidadCartones').value);
@@ -32,6 +36,7 @@ function generarCartones() {
 
 // Vista inicial
 mostrarVista('presentacion');
+
 
 
 
