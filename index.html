@@ -3,41 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Panel de Bingo</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      margin: 0;
-      padding: 20px;
-    }
-    .menu {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .menu button {
-      padding: 10px 20px;
-      background: #0077cc;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .seccion {
-      display: none;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-    .visible {
-      display: block;
-    }
-    .estado {
-      margin-top: 10px;
-      font-weight: bold;
-    }
-  </style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -83,31 +49,9 @@
     </form>
     <div class="estado" id="estadoEnviar"></div>
   </div>
-
-  <script>
-    function mostrarSeccion(id) {
-      document.querySelectorAll('.seccion').forEach(s => s.classList.remove('visible'));
-      document.getElementById(id).classList.add('visible');
-    }
-
-    // Simulación de respuestas
-    document.getElementById('formCompra').onsubmit = function(e) {
-      e.preventDefault();
-      document.getElementById('estadoCompra').textContent = "✅ Cartón generado correctamente.";
-    };
-
-    document.getElementById('formValidar').onsubmit = function(e) {
-      e.preventDefault();
-      document.getElementById('estadoValidar').textContent = "✅ Pago validado.";
-    };
-
-    document.getElementById('formEnviar').onsubmit = function(e) {
-      e.preventDefault();
-      document.getElementById('estadoEnviar').textContent = "📤 Cartón enviado por WhatsApp.";
-    };
-  </script>
-
+<script src="script.js"></script>
 </body>
 </html>
+
 
 
