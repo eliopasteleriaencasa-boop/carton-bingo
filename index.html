@@ -6,66 +6,65 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- 🎯 Presentación -->
-  <section id="presentacion" class="vista activa">
-    <div class="fondo">
-      <h1>Bienvenido al Sistema de Bingo Digital</h1>
-      <p>Automatiza, valida y audita todo el flujo de ventas y cartones.</p>
-      <button id="btnComenzar">Comenzar</button>
-    </div>
+  <!-- Vista de presentación -->
+  <section id="presentacion" class="vista">
+    <h1>Sistema de Bingo Digital</h1>
+    <p>Bienvenido, Elio. Este panel te permite gestionar pagos, generar cartones y enviarlos por WhatsApp con trazabilidad total.</p>
+    <button id="btnComenzar">Comenzar</button>
   </section>
 
-  <!-- 🧮 Generación -->
-  <section id="generacion" class="vista">
-    <h2>Generar cartones</h2>
-    <p>Zona:</p>
-    <input type="text" id="zonaCartones" placeholder="ZONA01">
-    <p>Evento:</p>
-    <input type="text" id="eventoCartones" placeholder="EVENTO23">
-    <p>Cantidad de cartones (1 a 1000):</p>
-    <input type="number" id="cantidadCartones" min="1" max="1000" value="10">
-    <button id="btnGenerar">Generar</button>
-    <div id="resultadoCartones"></div>
-    <button onclick="mostrarVista('presentacion')" class="btn-regresar">Regresar al inicio</button>
-  </section>
+  <!-- Panel principal oculto al inicio -->
+  <div class="container vista" id="panel">
+    <aside class="sidebar">
+      <h2>🎯 Menú</h2>
+      <nav>
+        <ul>
+          <li><a href="#registro">Registro</a></li>
+          <li><a href="#validacion">Validación</a></li>
+          <li><a href="#carton">Cartón</a></li>
+          <li><a href="#envio">Envío</a></li>
+          <li><a href="#auditoria">Auditoría</a></li>
+        </ul>
+      </nav>
+    </aside>
 
-  <!-- 🔘 Menú -->
-  <nav id="menu" class="oculto">
-    <button onclick="mostrarVista('validacion')">Validación de pagos</button>
-    <button onclick="mostrarVista('cartones')">Gestión de cartones</button>
-    <button onclick="mostrarVista('auditoria')">Auditoría</button>
-  </nav>
+    <main class="contenido">
+      <section id="registro">
+        <h2>Registro de Cliente</h2>
+        <form id="formRegistro">
+          <input type="text" id="nombre" placeholder="Nombre del cliente" required>
+          <input type="tel" id="whatsapp" placeholder="Número de WhatsApp" required>
+          <input type="text" id="referencia" placeholder="Referencia de pago" required>
+          <button type="submit">Registrar</button>
+        </form>
+        <div id="registroEstado"></div>
+      </section>
 
-  <!-- 🧾 Vistas posteriores -->
-  <section id="validacion" class="vista">
-    <h2>Validación de pagos</h2>
-    <p>Aquí puedes validar pagos recibidos y asignar cartones.</p>
-    <button onclick="mostrarVista('presentacion')" class="btn-regresar">Regresar al inicio</button>
-  </section>
+      <section id="validacion">
+        <h2>Validación de Pago</h2>
+        <button onclick="validarPago()">Validar referencia</button>
+        <div id="validacionEstado"></div>
+      </section>
 
-  <section id="cartones" class="vista">
-    <h2>Gestión de cartones</h2>
-    <p>Visualiza, genera y envía cartones únicos por evento.</p>
-    <button onclick="mostrarVista('presentacion')" class="btn-regresar">Regresar al inicio</button>
-  </section>
+      <section id="carton">
+        <h2>Generación de Cartón</h2>
+        <button onclick="generarCarton()">Generar cartón</button>
+        <div id="cartonVisual"></div>
+      </section>
 
-  <section id="auditoria" class="vista">
-    <h2>Auditoría</h2>
-    <p>Revisa trazabilidad, duplicidad y errores humanos.</p>
-    <button onclick="mostrarVista('presentacion')" class="btn-regresar">Regresar al inicio</button>
-  </section>
+      <section id="envio">
+        <h2>Envío por WhatsApp</h2>
+        <button onclick="enviarCarton()">Enviar cartón</button>
+        <div id="envioEstado"></div>
+      </section>
+
+      <section id="auditoria">
+        <h2>Auditoría</h2>
+        <div id="historial"></div>
+      </section>
+    </main>
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
