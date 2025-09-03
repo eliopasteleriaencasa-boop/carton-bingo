@@ -1,17 +1,18 @@
 // Activar panel y mostrar primera vista
 document.getElementById("btnComenzar").addEventListener("click", function () {
-  mostrarVista('panel');
+  document.getElementById("presentacion").style.display = "none";
+  document.getElementById("panel").style.display = "flex";
   mostrarVista('registro');
 });
 
-// Mostrar solo una vista a la vez
+// Mostrar solo una vista interna
 function mostrarVista(id) {
   const vistas = document.querySelectorAll('.vista');
   vistas.forEach(v => v.style.display = 'none');
 
   const vistaActiva = document.getElementById(id);
   if (vistaActiva) {
-    vistaActiva.style.display = id === 'panel' ? 'flex' : 'block';
+    vistaActiva.style.display = 'block';
   }
 }
 
@@ -95,4 +96,4 @@ function actualizarHistorial() {
 
   historial.forEach((registro, index) => {
     const item = document.createElement("div");
-    item.innerText = `${index + 1}. ${registro.nombre} | ${
+   
