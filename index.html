@@ -13,23 +13,23 @@
     <button id="btnComenzar">Comenzar</button>
   </section>
 
-  <!-- Panel principal oculto al inicio -->
+  <!-- Panel principal -->
   <div class="container vista" id="panel">
     <aside class="sidebar">
       <h2>🎯 Menú</h2>
       <nav>
         <ul>
-          <li><a href="#registro">Registro</a></li>
-          <li><a href="#validacion">Validación</a></li>
-          <li><a href="#carton">Cartón</a></li>
-          <li><a href="#envio">Envío</a></li>
-          <li><a href="#auditoria">Auditoría</a></li>
+          <li><a href="#" onclick="mostrarVista('registro')">Registro</a></li>
+          <li><a href="#" onclick="mostrarVista('validacion')">Validación</a></li>
+          <li><a href="#" onclick="mostrarVista('carton')">Cartón</a></li>
+          <li><a href="#" onclick="mostrarVista('envio')">Envío</a></li>
+          <li><a href="#" onclick="mostrarVista('auditoria')">Auditoría</a></li>
         </ul>
       </nav>
     </aside>
 
     <main class="contenido">
-      <section id="registro">
+      <section id="registro" class="vista">
         <h2>Registro de Cliente</h2>
         <form id="formRegistro">
           <input type="text" id="nombre" placeholder="Nombre del cliente" required>
@@ -40,25 +40,25 @@
         <div id="registroEstado"></div>
       </section>
 
-      <section id="validacion">
+      <section id="validacion" class="vista">
         <h2>Validación de Pago</h2>
         <button onclick="validarPago()">Validar referencia</button>
         <div id="validacionEstado"></div>
       </section>
 
-      <section id="carton">
+      <section id="carton" class="vista">
         <h2>Generación de Cartón</h2>
         <button onclick="generarCarton()">Generar cartón</button>
         <div id="cartonVisual"></div>
       </section>
 
-      <section id="envio">
+      <section id="envio" class="vista">
         <h2>Envío por WhatsApp</h2>
         <button onclick="enviarCarton()">Enviar cartón</button>
         <div id="envioEstado"></div>
       </section>
 
-      <section id="auditoria">
+      <section id="auditoria" class="vista">
         <h2>Auditoría</h2>
         <div id="historial"></div>
       </section>
