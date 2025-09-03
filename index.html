@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de Control Bingo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="evento-navidad">
+
+  <!-- Overlay visual -->
+  <div class="overlay"></div>
+
+  <!-- Panel lateral -->
+  <aside id="sidebar">
+    <button onclick="toggleView('generar')">🎲 Generar Cartones</button>
+    <button onclick="toggleView('validar')">💳 Validar Pagos</button>
+    <button onclick="toggleView('enviar')">📤 Enviar por WhatsApp</button>
+    <button onclick="toggleAuditMode()">🔍 Modo Auditoría</button>
+  </aside>
+
+  <!-- Vistas activables -->
+  <main>
+    <section id="generar" class="view active">
+      <h2>Generar Cartones</h2>
+      <!-- contenido -->
+    </section>
+
+    <section id="validar" class="view">
+      <h2>Validar Pagos</h2>
+      <!-- contenido -->
+    </section>
+
+    <section id="enviar" class="view">
+      <h2>Enviar por WhatsApp</h2>
+      <!-- contenido -->
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
