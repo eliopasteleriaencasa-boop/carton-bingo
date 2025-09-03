@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Panel de Control Bingo</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Asegura que solo la vista activa se muestre */
+    .view {
+      display: none;
+    }
+    .view.active {
+      display: block;
+    }
+  </style>
 </head>
 <body class="evento-navidad">
 
@@ -23,20 +32,37 @@
   <main>
     <section id="generar" class="view active">
       <h2>Generar Cartones</h2>
-      <!-- contenido -->
+      <p>Contenido de generación de cartones.</p>
     </section>
 
     <section id="validar" class="view">
       <h2>Validar Pagos</h2>
-      <!-- contenido -->
+      <p>Contenido de validación de pagos.</p>
     </section>
 
     <section id="enviar" class="view">
       <h2>Enviar por WhatsApp</h2>
-      <!-- contenido -->
+      <p>Contenido de envío por WhatsApp.</p>
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <script>
+    function toggleView(viewId) {
+      document.querySelectorAll('.view').forEach(view => {
+        view.classList.remove('active');
+      });
+      const target = document.getElementById(viewId);
+      if (target) {
+        target.classList.add('active');
+      } else {
+        console.warn(`No se encontró la vista con id: ${viewId}`);
+      }
+    }
+
+    function toggleAuditMode() {
+      document.body.classList.toggle('audit-mode');
+      alert("Modo auditoría activado/desactivado");
+    }
+  </script>
 </body>
 </html>
