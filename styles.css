@@ -1,68 +1,95 @@
-/* === RESET Y BASE === */
+/* === Reset básico === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-html, body {
-  height: 100%;
-  font-family: Arial, sans-serif;
-}
-
-/* === COMPONENTE: HERO === */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  color: white;
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f0f4ff, #dfe9f3);
+  color: #333;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background: url("img/animated-background.gif") no-repeat center/cover;
-  animation: slideBG 30s linear infinite;
-}
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
-}
-.hero button {
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #ff6f61;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.hero button:hover {
-  background-color: #e85b50;
+  justify-content: center;
 }
 
-/* === ANIMACIONES === */
-@keyframes slideBG {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+/* === Vistas === */
 .vista {
   display: none;
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+  transition: opacity 0.5s ease;
 }
 .vista.activa {
   display: block;
+  opacity: 1;
 }
+.vista.oculto {
+  display: none;
+}
+
+/* === Hero de bienvenida === */
+.hero {
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* === Botones === */
 .button {
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #ff6f61;
+  background-color: #0078d4;
   color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 .button:hover {
-  background-color: #e85b50;
+  background-color: #005fa3;
+}
+
+/* === Contenedor general === */
+.container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 2rem;
+}
+
+/* === Formulario === */
+.formulario label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+.formulario input,
+.formulario select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* === Confirmación === */
+.confirmacion {
+  margin-top: 2rem;
+  text-align: center;
+}
+.confirmacion.oculto {
+  display: none;
+}
+
+/* === Animaciones === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
