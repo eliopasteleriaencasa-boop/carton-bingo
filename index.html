@@ -3,14 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mi Sistema de Bingo Digital</title>
+  <title>BingoPro - Sistema de Vendedores</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="hero">
-    <h1>Bienvenido a BingoPro</h1>
-   <button class="button" id="registerBtn">Registrar Vendedor</button>
-  </div>
+
+  <!-- Vista 1: Bienvenida -->
+  <section class="vista vista-inicio activa">
+    <div class="hero">
+      <h1>Bienvenido a BingoPro</h1>
+      <button id="registerBtn" class="button">Registrar Vendedor</button>
+    </div>
+  </section>
+
+  <!-- Vista 2: Registro de Vendedor -->
+  <section class="vista vista-registro oculto">
+    <div class="container">
+      <h2>Registro de Vendedor</h2>
+      <form id="sellerForm" class="formulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required />
+
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" name="correo" required />
+
+        <label for="zona">Zona:</label>
+        <select id="zona" name="zona" required>
+          <option value="">Selecciona una zona</option>
+          <option value="norte">Norte</option>
+          <option value="sur">Sur</option>
+          <option value="centro">Centro</option>
+        </select>
+
+        <button type="submit" class="button">Registrar</button>
+      </form>
+
+      <div id="confirmacion" class="confirmacion oculto">
+        <p>Vendedor registrado correctamente.</p>
+        <button id="irAdmin" class="button">Ir a Administración</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vista 3: Administración de Cartones -->
+  <section class="vista vista-admin oculto">
+    <div class="container">
+      <h2>Administración de Cartones</h2>
+      <!-- Aquí irán los módulos de venta, generación, validación, etc. -->
+    </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
