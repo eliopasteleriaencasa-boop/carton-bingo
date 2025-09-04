@@ -1,17 +1,15 @@
-/* Reset mínimo */
+/* === RESET Y BASE === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-/* Pantalla completa con texto centrado */
 html, body {
   height: 100%;
   font-family: Arial, sans-serif;
 }
 
-/* Contenedor principal */
+/* === COMPONENTE: HERO === */
 .hero {
   position: relative;
   width: 100%;
@@ -21,27 +19,14 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  /* Fondo animado: coloca tu GIF/MP4 en carpeta img */
   background: url("img/animated-background.gif") no-repeat center/cover;
   animation: slideBG 30s linear infinite;
 }
-
-/* Animación de desplazamiento sutil */
-@keyframes slideBG {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Título principal */
 .hero h1 {
   font-size: 3rem;
   margin-bottom: 1.5rem;
   text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
-
-/* Botón de registro */
 .hero button {
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
@@ -52,7 +37,13 @@ html, body {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .hero button:hover {
   background-color: #e85b50;
+}
+
+/* === ANIMACIONES === */
+@keyframes slideBG {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
